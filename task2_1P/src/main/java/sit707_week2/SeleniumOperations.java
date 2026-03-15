@@ -35,30 +35,23 @@ public class SeleniumOperations {
 		// Step 3: Open Officeworks registration page
 		driver.get(url);
 		sleep(3);
-		// -------- First Name --------
+		
 		WebElement firstname = driver.findElement(By.id("firstname"));
 		System.out.println("Found element: " + firstname);
 		firstname.sendKeys("levin");
-
-		// -------- Last Name --------
+		
 		WebElement lastname = driver.findElement(By.id("lastname"));
 		lastname.sendKeys("joseph");
-
-		// -------- Email --------
+		
 		WebElement email = driver.findElement(By.id("email"));
 		email.sendKeys("levinjoseph11@gmail.com");
 
-		// -------- Confirm Email --------
-
-		// -------- Password --------
 		WebElement password = driver.findElement(By.name("password"));
 		password.sendKeys("123");
-
-		// -------- Confirm Password --------
+		
 		WebElement confirmPassword = driver.findElement(By.name("confirmPassword"));
 		confirmPassword.sendKeys("123");
-
-		// -------- Phone Number --------
+		
 		WebElement phone = driver.findElement(By.name("phoneNumber"));
 		phone.sendKeys("0468314089");
 
@@ -85,5 +78,49 @@ public class SeleniumOperations {
 
 		// Close browser
 		driver.close();
+	}
+	
+	public static void automationexercise_registration_page(String url) {
+
+	    // Chrome driver path
+	    System.setProperty("webdriver.chrome.driver","C:/Users/Levin/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe");
+
+	    System.out.println("Opening Chrome for Automation Exercise...");
+	    WebDriver driver = new ChromeDriver();
+
+	    sleep(2);
+
+	    // Open website
+	    driver.get(url);
+
+	    sleep(3);
+	    
+	    WebElement name = driver.findElement(By.name("name"));
+	    name.sendKeys("Levin");
+
+	    
+	    WebElement email = driver.findElement(By.xpath("//input[@data-qa='signup-email']"));
+	    email.sendKeys("levinjoseph123@gmail.com");
+	   
+	    WebElement signupBtn = driver.findElement(By.xpath("//button[@data-qa='signup-button']"));
+	    signupBtn.click();
+
+	    sleep(3);
+
+	    // Screenshot
+	    try {
+	        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	        File dest = new File("automationexercise_registration_screenshot.png");
+
+	        Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+	        System.out.println("Screenshot saved.");
+	    } catch (Exception e) {
+	        System.out.println("Screenshot failed: " + e.getMessage());
+	    }
+
+	    sleep(2);
+
+	    driver.close();
 	}
 }
