@@ -20,7 +20,7 @@ public class DateUtilTest {
 		Assert.assertNotNull("Student name is null", studentName);
 	}
 
-	// D1 (1-28), M2 (31-day month), Y2 (non-leap)
+	
 	@Test
 	public void testD1M2Y2IncrementWithinMonth() {
 		DateUtil date = new DateUtil(15, 1, 2023);
@@ -30,7 +30,7 @@ public class DateUtilTest {
 		Assert.assertEquals(2023, date.getYear());
 	}
 
-	// D2 (29), M3 (February), Y1 (leap)
+	
 	@Test
 	public void testD2M3Y1IncrementToMarchFirst() {
 		DateUtil date = new DateUtil(29, 2, 2024);
@@ -40,7 +40,7 @@ public class DateUtilTest {
 		Assert.assertEquals(2024, date.getYear());
 	}
 
-	// D3 (30), M1 (30-day month), Y2 (non-leap)
+	
 	@Test
 	public void testD3M1Y2IncrementToNextMonth() {
 		DateUtil date = new DateUtil(30, 4, 2023);
@@ -50,7 +50,7 @@ public class DateUtilTest {
 		Assert.assertEquals(2023, date.getYear());
 	}
 
-	// D4 (31), M2 (31-day month), Y1 (leap)
+	
 	@Test
 	public void testD4M2Y1IncrementToNextMonth() {
 		DateUtil date = new DateUtil(31, 1, 2024);
